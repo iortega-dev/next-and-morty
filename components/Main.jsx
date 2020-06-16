@@ -2,10 +2,10 @@ import React from 'react';
 import Album from './Album';
 import { Button, Container, Jumbotron } from 'reactstrap';
 
-const Main = ({ album }) => {
+const Main = ({ allCharactersData }) => {
     return (
         <main role="main">
-            <Jumbotron className="text-center">
+            <Jumbotron className="text-center p-2">
                 <Container>
                     <h1 className="jumbotron-heading">Characters Album</h1>
                     <p className="text-muted">
@@ -27,7 +27,7 @@ const Main = ({ album }) => {
                     </p>
                 </Container>
             </Jumbotron>
-            <Album album={album} />
+            <Album allCharactersData={allCharactersData} />
         </main>
     );
 };

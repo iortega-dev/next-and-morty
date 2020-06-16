@@ -1,11 +1,13 @@
 import Head from 'next/head'
+import { useState } from 'react';
+
 import Header from '../components/Header';
 import Main from '../components/Main';
 import Footer from '../components/Footer';
-import albumItems from '../data/album';
-import { useState } from 'react';
 
-export default function Home() {
+import { fetchData } from '../api/fullSSR';
+
+export default function Home(allCharactersData) {
   const [collapsed, setCollapsed] = useState(true)
 
   const toggleNavbar = () => {
@@ -18,8 +20,16 @@ export default function Home() {
         collapsed={collapsed}
         toggleNavbar={toggleNavbar}
       />
-      <Main album={albumItems} />
+      <Main allCharactersData={allCharactersData} />
       <Footer />
     </div>
   )
 }
+
+export const getStaticProps = async () => {
+  const allCharactersData = await fetchData();
+  return {
+    props: allCharactersData
+  };
+}
+

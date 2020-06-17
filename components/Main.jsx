@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import Album from './Album';
 import { Button, Container, Jumbotron } from 'reactstrap';
 
-const Main = ({ allCharactersData, onLoadMore }) => {
+const Main = ({ allCharactersData, onLoadMorePSSR, onLoadMoreSSR }) => {
     const router = useRouter()
     return (
         <main role="main">
@@ -33,9 +33,14 @@ const Main = ({ allCharactersData, onLoadMore }) => {
                                 SWR Test (SSR)
                             </Button>
                         </Link>
+                        {router.route === '/swr-pssr' &&
+                            <Button color="success" className="mx-1" onClick={onLoadMorePSSR}>
+                                Load Page 2 of Characters (PSSR)
+                            </Button>
+                        }
                         {router.route === '/swr-ssr' && 
-                            <Button color="success" className="mx-1" onClick={onLoadMore}>
-                                Load Page 2 of Characters
+                            <Button color="success" className="mx-1" onClick={onLoadMoreSSR}>
+                                Load Page 2 of Characters (SSR)
                             </Button>
                         }
                     </p>

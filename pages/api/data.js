@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-unfetch'
 
+/* Data function to retrieve information from API and then return its response */
 export default (req, res) => {
     let URL = 'https://rickandmortyapi.com/api/character/'
     if (req.query.page) {
@@ -9,7 +10,7 @@ export default (req, res) => {
     fetch(URL)
       .then(resp => resp.json())
       .then(data => {
-        setTimeout(() => {
+        setTimeout(() => { // Added timeout to get noticed when data takes time to load
           res.json(data.results)
         }, 2000)
       })

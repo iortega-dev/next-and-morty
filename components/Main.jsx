@@ -23,12 +23,17 @@ const Main = ({ allCharactersData, onLoadMore }) => {
                                 Home (SSR)
                             </Button>
                         </Link>
-                        <Link href="/swr">
+                        <Link href="/swr-pssr">
                             <Button color="info" className="mx-1">
                                 SWR Test (PSSR)
                             </Button>
                         </Link>
-                        {router.route === '/swr' && 
+                        <Link href="/swr-ssr">
+                            <Button color="secondary" className="mx-1">
+                                SWR Test (SSR)
+                            </Button>
+                        </Link>
+                        {router.route === '/swr-ssr' && 
                             <Button color="success" className="mx-1" onClick={onLoadMore}>
                                 Load Page 2 of Characters
                             </Button>

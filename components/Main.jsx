@@ -12,10 +12,9 @@ const Main = ({ allCharactersData, onLoadMorePSSR, onLoadMoreSSR }) => {
                 <Container>
                     <h1 className="jumbotron-heading">Characters Album</h1>
                     <p className="text-muted">
-                        {router.route === '/swr' 
-                            ? 'Esta web que estás visitando es servida de manera progresiva, primero tienes la información provista por el servidor, como por ejemplo este texto, y luego aparecerá el resultado con los personajes (incluye un timeout de 2 segundos)'
-                            : 'Esta web que estás visitando es servida de manera estática con información pre-renderizada en el servidor (excepto imágenes).'
-                        }
+                        {router.route === '/' ? 'Esta web que estás visitando es servida de manera estática con información pre-renderizada en el servidor (excepto imágenes, que pueden ser cacheadas).' : ''}
+                        {router.route === '/swr-pssr' ? 'Esta web que estás visitando es servida de manera progresiva, primero tienes la información provista por el servidor, como por ejemplo este texto, y luego aparecerá el resultado con los personajes (incluye un timeout de 2 segundos). El botón verde cargará la segunda página de resultados.' : ''}
+                        {router.route === '/swr-ssr' ? 'Esta web que estás es servida de manera estática al igual que la página principal, pero usando el método indicado por SWR. El botón verde cargará la segunda página de resultados.' : ''}
                     </p>
                     <p>
                         <Link href="/">
@@ -23,14 +22,14 @@ const Main = ({ allCharactersData, onLoadMorePSSR, onLoadMoreSSR }) => {
                                 Home (SSR)
                             </Button>
                         </Link>
-                        <Link href="/swr-pssr">
-                            <Button color="info" className="mx-1">
-                                SWR Test (PSSR)
-                            </Button>
-                        </Link>
                         <Link href="/swr-ssr">
                             <Button color="secondary" className="mx-1">
                                 SWR Test (SSR)
+                            </Button>
+                        </Link>
+                        <Link href="/swr-pssr">
+                            <Button color="info" className="mx-1">
+                                SWR Test (PSSR)
                             </Button>
                         </Link>
                         {router.route === '/swr-pssr' &&

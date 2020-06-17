@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import Album from './Album';
 import { Button, Container, Jumbotron } from 'reactstrap';
 
-const Main = ({ allCharactersData }) => {
+const Main = ({ allCharactersData, onLoadMore }) => {
     const router = useRouter()
     return (
         <main role="main">
@@ -29,7 +29,7 @@ const Main = ({ allCharactersData }) => {
                             </Button>
                         </Link>
                         {router.route === '/swr' && 
-                            <Button color="success" className="mx-1">
+                            <Button color="success" className="mx-1" onClick={onLoadMore}>
                                 Load Page 2 of Characters
                             </Button>
                         }

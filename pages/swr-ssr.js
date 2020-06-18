@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useSWR from 'swr';
+import Head from 'next/head'
 
 import Header from '../components/Header';
 import Main from '../components/Main';
@@ -32,6 +32,12 @@ export default function SWR(props) {
 
   return (
     <div>
+      <Head>
+        <title>Next & Morty - SSR (SWR)</title>
+        <meta name="author" content="Nacho Ortega" />
+        <meta name="description" content="NextJS Demo" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Header
         collapsed={collapsed}
         toggleNavbar={toggleNavbar}

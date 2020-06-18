@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Head from 'next/head'
 
 import Header from '../components/Header';
 import Main from '../components/Main';
@@ -28,6 +29,12 @@ export default function SWR() {
 
   return (
     <div>
+      <Head>
+        <title>Next & Morty - PSSR</title>
+        <meta name="author" content="Nacho Ortega" />
+        <meta name="description" content="NextJS Demo" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Header
         collapsed={collapsed}
         toggleNavbar={toggleNavbar}
